@@ -387,6 +387,7 @@ public class Person {
      *
      * @param otherPerson another person object
      * @return whether a person is older than the other
+     *
      */
     public boolean isOlder(Person otherPerson) {
         return getAge() > otherPerson.getAge();
@@ -397,6 +398,7 @@ public class Person {
      *
      * @param otherPerson another person object
      * @return whether a person is younger than the other
+     *
      */
     public boolean isYounger(Person otherPerson) {
         return !isOlder(otherPerson);
