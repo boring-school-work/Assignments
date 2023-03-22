@@ -22,11 +22,11 @@ public class Person {
     private static int votingAge;
     private static int drivingAge;
     private static int marriageAge;
-    private final int MAX_INFANT_AGE = 2;
-    private final int[] TODDLER_AGE = { 1, 3 };
-    private final int[] TEEN_AGE = { 13, 19 };
-    private final int MAX_CHILD_AGE = 15;
-    private final int[] YOUTH_AGE = { 15, 24 };
+    private static final int MAX_INFANT_AGE = 2;
+    private static final int[] TODDLER_AGE = { 1, 3 };
+    private static final int[] TEEN_AGE = { 13, 19 };
+    private static final int MAX_CHILD_AGE = 15;
+    private static final int[] YOUTH_AGE = { 15, 24 };
 
     /**
      * Person constructor
