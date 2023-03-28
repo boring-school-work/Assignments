@@ -3,6 +3,10 @@
  * You will need to add to it incrementally as you implement
  * the methods of the BankAccount class.
  * 
+ * @author David Saah
+ * @version 1.0
+ * @since 2023-03-24
+ *
  */
 public class TestBankAccount {
 
