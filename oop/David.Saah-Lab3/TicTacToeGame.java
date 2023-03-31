@@ -60,14 +60,14 @@ public class TicTacToeGame {
             if (player2.getName().equalsIgnoreCase(player1.getName())) {
                 System.out.println("\nError: Sorry, that name is being used by Player 1.\nPlease try again.\n");
                 player2InfoIsGood = player2InfoIsGood && false;
-                // continue;
+                continue;
             }
 
             // check if player 2's symbol is the same as player 1's
             if (player2.getSymbol().equals(player1.getSymbol())) {
                 System.out.println("\nError: Sorry, that symbol is being used by Player 1.\nPlease try again.\n");
                 player2InfoIsGood = player2InfoIsGood && false;
-                // continue;
+                continue;
             }
 
             player2InfoIsGood = true;
@@ -102,7 +102,7 @@ public class TicTacToeGame {
         // check if there is a winner or the game ended in a draw
         if (board.hasWinner()) {
             System.out.println("Game over!");
-            System.out.printf("Congratulations %s! You win.\n",
+            System.out.printf("Congratulations %s! You won.\n",
                     board.getWinningSymbol().equals(player1.getSymbol()) ? player1.getName() : player2.getName());
         } else {
             System.out.println("Board is full");

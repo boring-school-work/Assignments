@@ -163,7 +163,7 @@ public class TicTacToeBoard {
      * 
      */
     public boolean play(int row, int col, String symbol) {
-        // check if row and column are valid
+        // check if row and column input are valid
         if ((row >= SIZE) || (col >= SIZE)) {
             System.out.println("\nError: Invalid row or column!\nTry again\n");
             return false;
