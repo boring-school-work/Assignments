@@ -18,7 +18,12 @@
 
 ## Milestones
 
-- [] Draft of project title and introduction. (Due Apr 13)
+- [x] Draft of project title and introduction. (Due Apr 13)
 
-    - [] Project title and introduction are very clearly related to the project theme.
-    - [] Design document is well-written and logical, with no grammatical issues.
+    - [x] Project title and introduction are very clearly related to the project theme.
+    - [x] Design document is well-written and logical, with no grammatical issues.
+
+## Notes
+
+- Public buses generally run on diesel.
+- PRIVATE_EMISSIONS_FACTOR: "diesel" and "gasoline".
