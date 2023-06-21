@@ -1,3 +1,1 @@
-# Assignments
-
-A Collection of OOP Assignments
+# Programming Assignments
