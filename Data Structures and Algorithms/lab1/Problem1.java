@@ -1,3 +1,7 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.util.Random;
+
 /**
  * What does the program do?
  *
@@ -38,6 +42,7 @@ public class Problem1 {
   }
 
   public static void main(String[] args) {
+    String[] countries = loadData("./countries.csv");
 
     for (String country : countries) {
       System.out.println(country);
