@@ -7,7 +7,41 @@
  *
  */
 public class Problem1 {
+
+  public static int getRandomValue() {
+    Random r = new Random();
+    return r.nextInt(60);
+  }
+
+  public static String[] loadData(String location) {
+    BufferedReader br = null;
+    String[] data = new String[60];
+
+    try {
+      FileReader f = new FileReader(location);
+      br = new BufferedReader(f);
+
+      for (int i = 0; i < 60; i++) {
+        data[i] = br.readLine();
+      }
+    } catch (Exception e) {
+      System.out.println(e.toString());
+    } finally {
+      try {
+        br.close();
+      } catch (Exception e) {
+        e.printStackTrace();
+      }
+    }
+
+    return data;
+  }
+
   public static void main(String[] args) {
 
+    for (String country : countries) {
+      System.out.println(country);
+    }
+    System.out.println(getRandomValue());
   }
 }
