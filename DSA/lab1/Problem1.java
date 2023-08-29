@@ -5,6 +5,9 @@ import java.util.Scanner;
 
 /**
  * A country/capital quiz simulation.
+ * Prompts the user 20 times to input the capital of a random
+ * country. Each time, the program reports whether the answer
+ * is correct and remembers the number of correct answers.
  *
  * @author David Saah
  * @version 1.0
@@ -37,10 +40,9 @@ public class Problem1 {
       br = new BufferedReader(new FileReader(location)); // load file into a buffered reader
 
       // add each line in the file to the array
-      for (int i = 0; i < 60; i++) {
+      for (byte i = 0; i < 60; i++) {
         data[i] = br.readLine();
       }
-
     } catch (Exception e) {
       System.out.println(e.toString());
     } finally {
@@ -59,15 +61,17 @@ public class Problem1 {
     Scanner input = new Scanner(System.in);
     byte score = 0;
 
-    for (int i = 0; i < 20; i++) {
+    // prompt the user 20 times to guess the capital of a random country
+    for (byte i = 0; i < 20; i++) {
       String c = countries[getRandomValue()]; // returns "country,capital"
       String country = c.substring(0, c.indexOf(","));
       String capital = c.substring(c.indexOf(",") + 1);
 
       System.out.printf("What is the capital of %s?: ", country);
+
       if (input.nextLine().equalsIgnoreCase(capital)) {
         System.out.println("You guessed correctly!");
-        score += 1;
+        score++;
       } else {
         System.out.printf("You guessed wrong! The answer is %s.\n", capital);
       }
