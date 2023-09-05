@@ -24,14 +24,13 @@ public class Problem2 {
       System.out.println();
 
       // reuse getRandomValue from Problem1 to get a random number
-      // the random number is used to get a random word from the words array
       word = words[Problem1.getRandomValue()];
 
       hiddenWord = "*".repeat(word.length()); // hide word with asterisks
       byte misses = 0;
 
       // continue to prompt user until the word is guessed correctly
-      // i.e the hiddenWord does not contain any asterisk
+      // i.e when the hiddenWord does not contain any asterisk
       while (hiddenWord.contains("*")) {
         System.out.printf("Guess and enter a letter in the word %s > ", hiddenWord);
         guess = input.nextLine();

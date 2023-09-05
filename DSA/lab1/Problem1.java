@@ -41,7 +41,7 @@ public class Problem1 {
 
       // add each line in the file to the array
       for (byte i = 0; i < 60; i++) {
-        data[i] = br.readLine();
+        data[i] = br.readLine(); // store each line into the array
       }
     } catch (Exception e) {
       System.out.println(e.toString());
@@ -57,7 +57,7 @@ public class Problem1 {
   }
 
   public static void main(String[] args) {
-    String[] countries = loadData("./countries.csv"); // file in the format: country,capital
+    String[] countries = loadData("./countries.csv"); // data is in the format: country,capital
     Scanner input = new Scanner(System.in);
     byte score = 0;
 
@@ -78,7 +78,7 @@ public class Problem1 {
     }
 
     System.out.println();
-    System.out.printf("You have completed the quiz.");
+    System.out.println("You have completed the quiz.");
     System.out.printf("You correctly answered %d questions.\n", score);
 
     input.close(); // close the Scanner
