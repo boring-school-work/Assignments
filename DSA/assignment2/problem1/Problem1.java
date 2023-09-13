@@ -11,16 +11,24 @@ abstract class Product {
     this.quantity = quantity;
   }
 
-  void setName(String name) {
-    this.name = name;
-  }
-
   void setPrice(double price) {
     this.price = price;
   }
 
   void setQuantity(int quantity) {
     this.quantity = quantity;
+  }
+
+  String getName() {
+    return name;
+  }
+
+  double getPrice() {
+    return price;
+  }
+
+  int getQuantity() {
+    return quantity;
   }
 }
 
@@ -68,7 +76,7 @@ class StoreInventory<T extends Product> {
 
   T findProduct(String name) throws Exception {
     for (T p : products) {
-      if (p.name.equalsIgnoreCase(name)) {
+      if (p.getName().equalsIgnoreCase(name)) {
         return p;
       }
     }
@@ -85,7 +93,7 @@ class StoreInventory<T extends Product> {
     System.out.println("-".repeat(50));
 
     for (T p : products) {
-      System.out.printf("%s, %.2f, %d \n", p.name, p.price, p.quantity);
+      System.out.printf("%s, %.2f, %d \n", p.getName(), p.getPrice(), p.getQuantity());
     }
   }
 
@@ -97,7 +105,7 @@ class StoreInventory<T extends Product> {
     double total = 0;
 
     for (T p : products) {
-      total += p.quantity * p.price;
+      total += p.getQuantity() * p.getPrice();
     }
 
     return total;
@@ -112,6 +120,7 @@ class StoreInventory<T extends Product> {
     T p = findProduct(name);
     p.setPrice(price);
   }
+
 }
 
 /**
@@ -140,6 +149,7 @@ public class Problem1 {
       accraMall.updateProductQuantity("iron", 8);
       accraMall.updateProductPrice("iron", 80);
       accraMall.removeProduct("bowl");
+      accraMall.findProduct("go book");
     } catch (Exception e) {
       System.out.println(e.getMessage());
       System.exit(1);
