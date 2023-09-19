@@ -19,3 +19,4 @@ CREATE TABLE Score (
 
 /* cascade: all the time in exams */
 
+q
