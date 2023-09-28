@@ -185,8 +185,23 @@ SELECT count(staff_id) AS new_total_staff FROM staff;
 
 /* #2 TRANSACTION RECORDING */
 
-/* Record 3 transactions */
+/* Record 2 transactions */
+INSERT INTO transactions (
+  trans_id, total_cost, customer_name
+) VALUES 
+( 4, 200, "Tiwa" ),
+( 5, 350, "Frovy" );
 
+INSERT INTO itemsBought (
+  trans_id, item_id, item_quantity
+) VALUES 
+( 4, 8, 2 ),
+( 4, 2, 2 ),
+( 5, 6, 2 ),
+( 5, 10, 2 ),
+( 5, 9, 3 ),
+( 5, 2, 6 ),
+( 5, 4, 10 );
 
 /* #3 STOCK ALERTS AND REORDERING */
 
@@ -194,12 +209,15 @@ SELECT count(staff_id) AS new_total_staff FROM staff;
  * Assume threshold for item quantity is 5.
  * Reorder low stocked items from partners.
  * */
+SELECT * FROM warehouseInventory
+WHERE item_quantity < 5;
 
 /* Check if the store has enough stock for the day 
  * Assume it is recommended to have at least 5 items for each product.
  * Contact logistics to bring in new products from the warehouse.
  * */
-
+SELECT * FROM storeInventory 
+WHERE item_quantity < 5;
 
 /* #4 REPORTING AND ANALYTICS */
 
@@ -207,10 +225,135 @@ SELECT count(staff_id) AS new_total_staff FROM staff;
  * How many sales did we make?
  * What was the gross income?
  * */
+SELECT count(trans_id) AS total_sales FROM transactions;
+SELECT sum(total_cost) AS gross_income FROM transactions;
 
-/* Check staff performance in retail department 
- * How many people work in retail department?
- * List in descending order the number of transactions made by staff
- * */
+/* Check the products that have been purchased */
+SELECT DISTINCT item_id AS purchased_item_ids FROM itemsBought;
 
-/* Find top 3 purchased products */
+SELECT
+    storeInventory.item_name as item_sold, 
+    sum(itemsBought.item_quantity) as total_quantity_sold 
+FROM
+    storeInventory inner join itemsBought 
+ON 
+    itemsBought.item_id=storeInventory.item_id 
+WHERE 
+    itemsBought.item_id = 2
+UNION
+SELECT
+    storeInventory.item_name as item_sold, 
+    sum(itemsBought.item_quantity) as total_quantity_sold 
+FROM
+    storeInventory inner join itemsBought 
+ON 
+    itemsBought.item_id=storeInventory.item_id 
+WHERE 
+    itemsBought.item_id = 4
+UNION
+SELECT
+    storeInventory.item_name as item_sold, 
+    sum(itemsBought.item_quantity) as total_quantity_sold 
+FROM
+    storeInventory inner join itemsBought 
+ON 
+    itemsBought.item_id=storeInventory.item_id 
+WHERE 
+    itemsBought.item_id = 5
+UNION
+SELECT
+    storeInventory.item_name as item_sold, 
+    sum(itemsBought.item_quantity) as total_quantity_sold 
+FROM
+    storeInventory inner join itemsBought 
+ON 
+    itemsBought.item_id=storeInventory.item_id 
+WHERE 
+    itemsBought.item_id = 6
+UNION
+SELECT
+    storeInventory.item_name as item_sold, 
+    sum(itemsBought.item_quantity) as total_quantity_sold 
+FROM
+    storeInventory inner join itemsBought 
+ON 
+    itemsBought.item_id=storeInventory.item_id 
+WHERE 
+    itemsBought.item_id = 7
+UNION
+SELECT
+    storeInventory.item_name as item_sold, 
+    sum(itemsBought.item_quantity) as total_quantity_sold 
+FROM
+    storeInventory inner join itemsBought 
+ON 
+    itemsBought.item_id=storeInventory.item_id 
+WHERE 
+    itemsBought.item_id = 8
+UNION
+SELECT
+    storeInventory.item_name as item_sold, 
+    sum(itemsBought.item_quantity) as total_quantity_sold 
+FROM
+    storeInventory inner join itemsBought 
+ON 
+    itemsBought.item_id=storeInventory.item_id 
+WHERE 
+    itemsBought.item_id = 9
+UNION
+SELECT
+    storeInventory.item_name as item_sold, 
+    sum(itemsBought.item_quantity) as total_quantity_sold 
+FROM
+    storeInventory inner join itemsBought 
+ON 
+    itemsBought.item_id=storeInventory.item_id 
+WHERE 
+    itemsBought.item_id = 10;
+
+
+/* #5 INVENTORY MANAGEMENT & #6 ITEM INFORMATION */
+/* Check the items in store inventory */
+SELECT * FROM storeInventory;
+
+/* Update product quantity after sales */
+UPDATE storeInventory
+  SET item_quantity = item_quantity - 12
+  WHERE item_id = 2;
+
+/* Show the updated table */
+SELECT * FROM storeInventory;
+
+
+/* #7 WAREHOUSE INVENTORY */ 
+
+/* Check the items in warehouse inventory */
+SELECT * FROM warehouseInventory;
+
+/* Stock up warehouse inventory */
+UPDATE warehouseInventory
+  SET item_quantity = item_quantity + 100
+  WHERE item_id = 5;
+
+/* Stock up store inventory from warehouse */
+UPDATE storeInventory 
+  SET item_quantity = item_quantity + 50
+  WHERE item_id = 5;
+
+UPDATE warehouseInventory 
+  SET item_quantity = item_quantity - 50
+  WHERE item_id = 5;
+
+/* Show the updated tables */
+SELECT 
+    storeInventory.item_id as item_id,
+    storeInventory.item_name as item_name,
+    storeInventory.item_quantity as quantity_in_store,
+    warehouseInventory.item_quantity as quantity_in_warehouse
+FROM 
+    storeInventory
+INNER JOIN 
+    warehouseInventory
+ON
+    storeInventory.item_id=warehouseInventory.item_id;
+
