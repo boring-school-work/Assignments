@@ -1,3 +1,11 @@
+/**
+ * Task Management System implementation
+ *
+ * @author David Saah
+ * @since 2023-20-23
+ * @version 1.0
+ *
+ */
 class TaskMS {
   private Queue normal_tasks; // hold normal tasks
   private Stack priority_tasks; // hold the priority tasks
