@@ -69,8 +69,14 @@ public class Stack {
 
   /**
    * Display the stack
+   * 
+   * @throws error stack is empty
    */
-  public void display() {
+  public void display() throws Exception {
+    if (isEmpty()) {
+      throw new Exception("Stack is empty");
+    }
+
     Node current = top;
 
     while (current != null) {

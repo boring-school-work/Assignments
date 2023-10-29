@@ -87,8 +87,14 @@ public class Queue {
 
   /**
    * Display the queue
+   * 
+   * @throws error queue is empty
    */
-  public void display() {
+  public void display() throws Exception {
+    if (isEmpty()) {
+      throw new Exception("Queue is empty");
+    }
+
     Node current = front;
 
     while (current != null) {
