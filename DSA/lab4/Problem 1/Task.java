@@ -17,13 +17,12 @@ public class Task {
    *
    * @param task_id     unique id for each task
    * @param description description of task
-   * @param status      state of the task pending or completed
    * @param priority    0-5: Normal, 5-10: High
    */
-  public Task(String task_id, String description, String status, int priority) {
+  public Task(String task_id, String description, int priority) {
     this.task_id = task_id;
     this.description = description;
-    this.status = status;
+    this.status = "pending";
     this.priority = priority;
   }
 
@@ -61,6 +60,13 @@ public class Task {
    */
   public int getPriority() {
     return priority;
+  }
+
+  /**
+   * Marks task as processed
+   */
+  public void process() {
+    this.status = "completed";
   }
 
   @Override
