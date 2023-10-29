@@ -21,6 +21,7 @@ public class Stack {
     newNode.next = top; // set the next of the new node to the top
     top = newNode; // set the top to the new node
     size++;
+
   }
 
   /**
@@ -64,5 +65,20 @@ public class Stack {
    */
   public boolean isEmpty() {
     return size == 0;
+  }
+
+  /**
+   * Display the stack
+   */
+  public void display() {
+    Node current = top;
+
+    while (current != null) {
+      System.out.print(current.data.toString());
+      System.out.println();
+      current = current.next;
+    }
+
+    System.out.println();
   }
 }

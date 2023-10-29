@@ -34,7 +34,8 @@ public class Queue {
 
     // if the queue has only one element
     // the next pointer of the front should point to the rear
-    // this prevents the next pointer for front from pointing to null, breaking the link
+    // this prevents the next pointer for front from pointing to null, breaking the
+    // link
     if (size == 1) {
       front.next = rear;
     }
@@ -82,5 +83,20 @@ public class Queue {
    */
   public boolean isEmpty() {
     return size == 0;
+  }
+
+  /**
+   * Display the queue
+   */
+  public void display() {
+    Node current = front;
+
+    while (current != null) {
+      System.out.print(current.data.toString());
+      System.out.println();
+      current = current.next;
+    }
+
+    System.out.println();
   }
 }

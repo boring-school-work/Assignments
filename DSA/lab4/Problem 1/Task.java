@@ -63,4 +63,10 @@ public class Task {
     return priority;
   }
 
+  @Override
+  public String toString() {
+    return "Task [ task_id: " + task_id + ", description: " + description
+        + ", status: " + status + ", priority: " + priority + " ]";
+  }
+
 }
