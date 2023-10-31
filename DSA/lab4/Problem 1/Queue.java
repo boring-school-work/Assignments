@@ -32,10 +32,10 @@ public class Queue {
     rear.next = newNode;
     rear = newNode;
 
-    // if the queue has only one element
-    // the next pointer of the front should point to the rear
-    // this prevents the next pointer for front from pointing to null, breaking the
-    // link
+    // if the queue has only one element,
+    // the next pointer of the front should point to the rear.
+    // This prevents the next pointer for front from pointing
+    // to null, breaking the link
     if (size == 1) {
       front.next = rear;
     }
