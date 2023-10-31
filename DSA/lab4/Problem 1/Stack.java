@@ -14,14 +14,26 @@ public class Stack {
    * Add a task to the stack
    *
    * @param task the task to add to the stack
+   * @throws error stack is empty
    */
-  public void push(Task task) {
+  public void push(Task task) throws Exception {
+    Stack tmp = new Stack(); // create a temporary stack for sorting priorities
     Node newNode = new Node(task);
+
+    // pop all elements from stack that has greater priority than new task
+    // Store the tasks in a temporary node
+    while (top != null && newNode.data.getPriority() < top.data.getPriority()) {
+      tmp.push(pop());
+    }
 
     newNode.next = top; // set the next of the new node to the top
     top = newNode; // set the top to the new node
     size++;
 
+    // repopulate stack with tasks in the temporary stack
+    while (!tmp.isEmpty()) {
+      push(tmp.pop());
+    }
   }
 
   /**
