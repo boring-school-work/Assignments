@@ -21,11 +21,19 @@ class TaskMS {
   }
 
   /**
-   * Add a new task
+   * Add a new task based on priority
+   * [0-5] --> Normal priority
+   * [6-10] --> High priority
    *
    * @param task the task to be added
+   * @throws error stack is empty, priority is out of range
    */
-  public void addTask(Task task) {
+  public void addTask(Task task) throws Exception {
+    // throw an error if priority is out of range
+    if (task.getPriority() > 10 || task.getPriority() < 0) {
+      throw new Exception("Error: Cannot add task, priority is out of range.\nFix: Choose between 0 to 10 inclusive");
+    }
+
     if (task.getPriority() > 5) {
       priority_tasks.push(task);
     } else {
