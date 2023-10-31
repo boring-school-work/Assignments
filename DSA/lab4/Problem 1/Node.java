@@ -19,15 +19,4 @@ class Node {
   public Node(Task data) {
     this.data = data;
   }
-
-  /**
-   * Check if any node two nodes are equal
-   *
-   * @param other the Other node
-   *
-   * @return whether the nodes contain the same data or not
-   */
-  public boolean isEqual(Node other) {
-    return this.data == other.data;
-  }
 }
