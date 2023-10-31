@@ -10,12 +10,14 @@ import java.util.Scanner;
  */
 public class Main {
   public static void main(String[] args) {
-    TaskMS taskms = new TaskMS();
-    String id_pre = "T";
-    int id_num = 220;
-    Scanner input = new Scanner(System.in);
+    TaskMS taskms = new TaskMS(); // create new task management system instance
+    String id_pre = "T"; // id prefix
+    int id_num = 220; // starting id number
+    Scanner input = new Scanner(System.in); // get user input
 
+    // start main program loop
     while (true) {
+      /* MENU */
       System.out.println();
       System.out.println("1. Add Task");
       System.out.println("2. Process Task");
@@ -25,6 +27,7 @@ public class Main {
       System.out.println("6. Quit");
       System.out.println();
 
+      /* USER PROMPT */
       System.out.print("Option: ");
       String option = input.nextLine();
 
@@ -73,6 +76,7 @@ public class Main {
           taskms.displayProcessed();
           System.out.println();
         }
+
         // exit the program
         else if (option.equals("6")) {
           break;
@@ -85,6 +89,8 @@ public class Main {
           continue;
         }
       } catch (Exception e) {
+        // display possible errors during runtime
+        System.out.println();
         System.out.println(e);
         System.out.println();
       }
