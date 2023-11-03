@@ -1,0 +1,291 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+
+\begin{titlepage}
+\title{
+    \textbf{Homework 5} \\ \vspace{1cm}
+}
+
+\author{
+\vspace*{0.5cm}
+    David Abeiku Saah \\ \vspace{0.4cm}
+    MATH212: Linear Algebra \\ \vspace{0.5cm}
+    Dr Ayawoa Dagbovie \\
+}
+
+\date{October 27, 2023}
+\end{titlepage}
+
+\begin{document}
+
+\maketitle
+
+\newpage
+
+\section*{Problem 1}
+
+Column space of A is the set of pivot columns in A.
+
+\begin{equation*}
+    Col A = \left\{
+        \begin{bmatrix}
+            1 \\
+            5 \\
+            4 \\
+            -2
+        \end{bmatrix}, \begin{bmatrix}
+            -4 \\
+            -9 \\
+            -9 \\
+            5
+        \end{bmatrix}, \begin{bmatrix}
+            3 \\
+            8 \\
+            7 \\
+            -6
+        \end{bmatrix}
+    \right\}
+\end{equation*}
+Finding the null space of A. Solving $[\boldsymbol{A} \text{ } \boldsymbol{0}]$:\[
+    \begin{bmatrix}
+        1 & 2 & -4 & 3 & 3 & 0 \\
+        0 & 0 & 1 & -2 & 0 & 0 \\
+        0 & 0 & 0 & 0 & -5 & 0 \\
+        0 & 0 & 0 & 0 & 0 & 0
+    \end{bmatrix}
+\]
+
+\[
+    R_3 \rightarrow \frac{-1}{5}R_3
+\]
+
+\[
+    \begin{bmatrix}
+        1 & 2 & -4 & 3 & 3 & 0 \\
+        0 & 0 & 1 & -2 & 0 & 0 \\
+        0 & 0 & 0 & 0 & 1 & 0\\
+        0 & 0 & 0 & 0 & 0 & 0
+    \end{bmatrix}
+\]
+
+
+\[
+    R_1 \rightarrow -3R_3 + R_1
+\]
+
+\[
+    \begin{bmatrix}
+        1 & 2 & -4 & 3 & 0 & 0 \\
+        0 & 0 & 1 & -2 & 0 & 0 \\
+        0 & 0 & 0 & 0 & 1 & 0 \\
+        0 & 0 & 0 & 0 & 0 & 0
+    \end{bmatrix}
+\]
+
+\[
+    R_1 \rightarrow 4R_2 + R_1
+\]
+
+\[
+    \begin{bmatrix}
+        1 & 2 & 0 & -5 & 0 & 0 \\
+        0 & 0 & 1 & -2 & 0 & 0 \\
+        0 & 0 & 0 & 0 & 1 & 0\\
+        0 & 0 & 0 & 0 & 0 & 0
+    \end{bmatrix}
+\]
+
+\newpage
+
+\[
+    \text{Equations: }\begin{cases}
+        x_1 + 2x_4 - 5x_5 = 0 \\
+        x_2 - 2x_5 = 0 \\
+        x_3 = 0 \\
+        x_4 = x_4 \\
+        x_5 = x_5 \\
+    \end{cases}
+\]
+
+\[
+    \boldsymbol{x}= \begin{bmatrix}
+        x_1 \\
+        x_2 \\
+        x_3 \\
+        x_4 \\
+        x_5
+    \end{bmatrix} = \begin{bmatrix}
+        -2x_4 + 5x_5 \\
+        2x_5 \\
+        0 \\
+        x_4 \\
+        x_5
+    \end{bmatrix} = x_4\begin{bmatrix}
+        -2 \\
+        0 \\
+        0 \\
+        1 \\
+        0
+    \end{bmatrix} + x_5\begin{bmatrix}
+        5 \\
+        2 \\
+        0 \\
+        0 \\
+        1
+    \end{bmatrix}
+\]
+
+\[
+    \therefore Nul A =
+    \left\{
+        \begin{bmatrix}
+            -2 \\
+            0 \\
+            0 \\
+            1 \\
+            0
+        \end{bmatrix}, \begin{bmatrix}
+            5 \\
+            2 \\
+            0 \\
+            0 \\
+            1
+        \end{bmatrix}
+    \right\}
+\]
+
+\section*{Problem 2}
+
+Let \[
+    \boldsymbol{A} = \begin{bmatrix}
+        4 & 0 & -7 & 3 & -5 \\
+        0 & 0 & 2 & 0 & 0 \\
+        7 & 3 & -6 & 4 & -8 \\
+        5 & 0 & 5 & 2 & -3 \\
+        0 & 0 & 9 & -1 & 2 \\
+    \end{bmatrix}
+\]
+
+\[
+    \det\boldsymbol{A} = \sum_{j=1}^n (-1)^{2 + j} a_{2j}\boldsymbol{A}_{2j} \text { where } n = \text{ number of columns in } \boldsymbol{A}
+\]
+
+\[
+    = -0 + 0 - 2\begin{vmatrix}
+        4 & 0 & 3 & -5 \\
+        7 & 3 & 4 & -8 \\
+        5 & 0 & 2 & -3 \\
+        0 & 0 & -1 & 2 \\
+    \end{vmatrix} + 0 - 0
+\]
+
+\[
+    \det\boldsymbol{A} = \sum_{i=1}^n (-1)^{i + 2} a_{i2}\boldsymbol{A}_{i2} \text { where } n = \text{ number of columns in submatrix}
+\]
+
+\[
+    = -2\left(-0 + 3\begin{vmatrix}
+        4 & 3 & -5 \\
+        5 & 2 & -3 \\
+        0 & -1 & 2 \\
+    \end{vmatrix} - 0 + 0\right)
+\]
+
+\[
+    \det\boldsymbol{A} = \sum_{j=1}^n (-1)^{3 + j} a_{3j}\boldsymbol{A}_{3j} \text { where } n = \text{ number of columns in submatrix}
+\]
+
+\[
+    = -6\left(0 - 1\begin{vmatrix}
+        4 & -5 \\
+        5 & -3 \\
+    \end{vmatrix} + 2\begin{vmatrix}
+        4 & 3 \\
+        5 & 2 \\
+    \end{vmatrix} \right)
+\]
+
+Determinant of a 2 x 2 matrix, $\begin{vmatrix}
+    a & b \\
+    c & d \\
+\end{vmatrix} = ad - bc$
+
+\[
+    \det\boldsymbol{A} = -6(0 - 1(-12 - (-25)) + 2(8 - 15))
+\]
+
+\[
+    = -6(0 - 1(13) + 2(-7))
+\]
+
+\[
+    = -6(-13-14)
+\]
+
+\[
+    = -6(-27)
+\]
+
+\[
+    = 162
+\]
+
+$\therefore$ The determinant of $\boldsymbol{A}$ is 162.
+
+\section*{Problem 3}
+Let $\boldsymbol{A}$ and $\boldsymbol{B}$ be 4 x 4 matrices such that:
+\[
+    \det \boldsymbol{A} = -3 \text{, det } \boldsymbol{B} = -1
+\]
+
+\subsection*{a)}
+
+\[
+    \det(\boldsymbol{AB}) = (\det\boldsymbol{A}) (\det\boldsymbol{B})
+\]
+
+\[
+    \therefore \det(\boldsymbol{AB}) = (-3)(-1) = 3
+\]
+
+The determinant of a product of matrices is equal to the product of the determinants of the matrices.
+
+\subsection*{b)}
+
+\[
+    \det 2\boldsymbol{A} = (2^n) (\det\boldsymbol{A}) \text{, where } n = \text{ number of rows in } \boldsymbol{A}
+\]
+
+\[
+    \therefore \det 2\boldsymbol{A} = (2^4)(-3) = -48
+\]
+
+2$\boldsymbol{A}$ is equivalent to multiplying all the rows of $\boldsymbol{A}$ by 2. One of the properties of determinants is that if one row is multiplied by a scalar, k, then the determinant of the new matrix is $k \cdot \det\boldsymbol{A}$. For multiplying all the rows, the determinant is $k^n \cdot \det\boldsymbol{A}$, where $n$ in the number of rows.
+
+\subsection*{c)}
+
+\[
+    \det(\boldsymbol{A}^T\boldsymbol{BA}) = (\det\boldsymbol{A})(\det\boldsymbol{B})(\det\boldsymbol{A})
+\]
+
+\[
+    \therefore \det(\boldsymbol{A}^T\boldsymbol{BA}) = (-3)(-1)(-3) = -9
+\]
+
+The determinant of a product of matrices is equal to the product of the determinants of the matrices. Also, the determinant of a transpose of a matrix, say $\boldsymbol{A}^T$ is equal to the determinant of the original matrix, $\boldsymbol{A}$.
+
+\subsection*{d)}
+
+\[
+    \det(\boldsymbol{B}^{-1}\boldsymbol{AB}) = \left(\frac{1}{\det\boldsymbol{A}}\right)(\det\boldsymbol{A})(\det\boldsymbol{B})
+\]
+
+\[
+    \therefore \det(\boldsymbol{B}^{-1}\boldsymbol{AB}) = \left(\frac{1}{-3}\right)(-3)(-1) = -1
+\]
+
+The determinant of a product of matrices is equal to the product of the determinants of the matrices. Also, the determinant of the inverse of a matrix, say $\boldsymbol{A}^{-1}$ is equal to the reciprocal of the determinant of the original matrix, $\boldsymbol{A}$.
+
+\end{document}

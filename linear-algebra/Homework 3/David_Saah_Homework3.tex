@@ -1,0 +1,311 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\begin{titlepage}
+\title{
+    \textbf{Homework 3} \\ \vspace{1cm}
+}
+
+\author{
+\vspace*{0.5cm}
+    David Abeiku Saah \\ \vspace{0.4cm}
+    MATH212: Linear Algebra \\ \vspace{0.5cm}
+    Dr Ayawoa Dagbovie \\
+}
+
+\date{September 14, 2023}
+\end{titlepage}
+
+\begin{document}
+
+\maketitle
+
+\newpage
+
+\section*{Problem 1}
+
+\[
+    x_1 - 2x_2 + 3x_3 = 0 \tag{1}
+\]
+
+Solving for $x_1$ in terms of $x_2$ and $x_3$:
+\[
+    x_1 = 2x_2 - 3x_3
+\]
+
+$x_1$ and $x_2$ are free. Representing the solution set in vector form:
+
+\[
+    x = \begin{bmatrix}
+        x_1 \\
+        x_2 \\
+        x_3
+    \end{bmatrix} = \begin{bmatrix}
+        2x_2 - 3x_3 \\
+        x_2 \\
+        x_3
+    \end{bmatrix}
+\]
+
+\[
+    = x_2 \begin{bmatrix}
+        2 \\
+        1 \\
+        0
+    \end{bmatrix} + x_3 \begin{bmatrix}
+        -3 \\
+        0 \\
+        1
+    \end{bmatrix}
+\]
+
+\[
+   \text{Let } \boldsymbol{u} = \begin{bmatrix}
+        2 \\
+        1 \\
+        0
+    \end{bmatrix} \text{ and } \boldsymbol{v} = \begin{bmatrix}
+        -3 \\
+        0 \\
+        1
+    \end{bmatrix}
+\]
+
+\[
+  x = x_2 \boldsymbol{u} + x_3 \boldsymbol{v}
+\]
+
+\[
+    x_1 - 2x_2 + 3x_3 = 4 \tag{2}
+\]
+
+Solving for $x_1$ in terms of $x_2$ and $x_3$:
+
+\[
+    x_1 = 2x_2 - 3x_3 + 4
+\]
+
+$x_1$ and $x_2$ are free. Representing the solution set in vector form:
+
+\[
+    x = \begin{bmatrix}
+        x_1 \\
+        x_2 \\
+        x_3
+    \end{bmatrix} = \begin{bmatrix}
+        x_2 - 3x_3 + 4\\
+        x_2 \\
+        x_3
+    \end{bmatrix}
+\]
+
+\[
+    = \begin{bmatrix}
+        4 \\
+        0 \\
+        0
+    \end{bmatrix} + x_2 \begin{bmatrix}
+        2 \\
+        1 \\
+        0
+    \end{bmatrix} + x_3 \begin{bmatrix}
+        -3 \\
+        0 \\
+        1
+    \end{bmatrix}
+\]
+
+Substituting $\boldsymbol{u}$ and $\boldsymbol{v}$:
+
+\[
+  x  = \begin{bmatrix}
+        4 \\
+        0 \\
+        0
+    \end{bmatrix} + x_2 \boldsymbol{u} + x_3 \boldsymbol{v}
+\]
+
+$\therefore$ The solution of $eqn(1)$ and $eqn(2)$ are in $\mathbb{R}^3$. The line $x_1-2x_2+3x_3 = 0$ passes through the origin and spans $\boldsymbol{u}$ and $\boldsymbol{v}$. The line $x_1-2x_2+3x_3 = 4$ is parallel to the line $x_1-2x_2+3x_3 = 0$ and passes through the point $(4, 0, 0)$.
+
+\newpage
+
+\section*{Problem 2}
+
+% list items
+
+\begin{enumerate}
+    \item Let A be Agriculture.
+    \item Let E be Energy.
+    \item Let M be Manufacturing.
+    \item Let T be Transportation.
+\end{enumerate}
+
+\subsection*{(a)}
+
+\begin{table}[h!]
+    \begin{tabular}{ c c c c | c }
+   \hline
+    \textbf{A} & \textbf{E} & \textbf{M} & \textbf{T} & \textbf{Purchased By} \\
+   \hline
+    0.65 & 0.3 & 0.3 & 0.2 & \textbf{A} \\
+   0.1 & 0.1 & 0.15 & 0.1 & \textbf{E} \\
+   0.25 & 0.35 & 0.15 & 0.3 & \textbf{M} \\
+   0 & 0.25 & 0.4 & 0.4 & \textbf{T} \\
+   \hline
+    \end{tabular}
+\end{table}
+
+\subsection*{(b)}
+
+Let $p_a, p_e, p_m, p_t$ be the amount of money spent on Agriculture, Energy, Manufacturing and Transportation respectively.
+
+\[
+    \text{Systems of equations: } \begin{cases}
+        -0.35p_a + 0.3p_e + 0.3p_m + 0.2p_t = 0 \\
+        0.1p_a - 0.9p_e + 0.15p_m + 0.1p_t = 0 \\
+        0.25p_a + 0.35p_e - 0.85p_m + 0.3p_t = 0 \\
+        0p_a + 0.25p_e + 0.4p_m - 0.6p_t = 0 \\
+    \end{cases}
+\]
+
+After computing the augmented matrix using software, the reduced row echelon form is:
+
+%  1.0000        0        0  -2.0279        0
+% 0   1.0000        0  -0.5311        0
+% 0        0   1.0000  -1.1681        0
+% 0        0        0        0        0
+
+\[
+    \begin{bmatrix}
+        1 & 0 & 0 & -2.0279 & 0 \\
+        0 & 1 & 0 & -0.5311 & 0 \\
+        0 & 0 & 1 & -1.1681 & 0 \\
+        0 & 0 & 0 & 0 & 0
+    \end{bmatrix}
+\]
+
+Equivalent system of equations:
+
+\[
+    \begin{aligned}
+        p_a - 2.0279t &= 0 \\
+        p_e - 0.5311t &= 0 \\
+        p_m - 1.1681t &= 0 \\
+        p_t &= p_t
+    \end{aligned}
+\]
+
+\[
+    \text{The general solution for equilibrium prices in the economy:} \begin{cases}
+        p_a = 2.0279t \\
+        p_e = 0.5311t \\
+        p_m = 1.1681t \\
+        p_t = p_t
+    \end{cases}
+\]
+
+Vector form:
+
+\[
+   p = \begin{bmatrix}
+       p_a \\
+        p_e \\
+        p_m \\
+        p_t
+    \end{bmatrix} = \begin{bmatrix}
+        2.0279p_t \\
+        0.5311p_t \\
+        1.1681p_t \\
+        p_t
+    \end{bmatrix} = p_t \begin{bmatrix}
+        2.0279 \\
+        0.5311 \\
+        1.1681 \\
+        1
+    \end{bmatrix}
+\]
+
+If $p_t = \$1,000,000$, then $p_a = \$2,027,900$, $p_e = \$531,100$, and $p_m = \$1,168,100$.
+
+$\therefore$ The incomes and expenditures of each sector will be equal if the output of Agriculture is priced at \$2,027,900, Energy is \$531,100, Manufacturing is priced at \$1,168,100 and that of Transportation is \$1,000,000 (using the example above).
+
+\newpage
+
+\section*{Problem 3}
+
+
+\begin{table}[h!]
+    \begin{tabular}{c c c}
+   \hline
+    \textbf{Intersection} & \textbf{Flow in} & \textbf{Flow out} \\
+    \hline
+    A & $x_1$ & $x_2+100$ \\
+   B & $x_2+50$ & $x_3$ \\
+   C & $x_3$ & $x_4+120$  \\
+   D & $x_4+150$ & $x_5$ \\
+   E & $x_5$ & $x_6+80$ \\
+   F & $x_6+100$ & $x_1$ \\
+   \hline
+    \end{tabular}
+\end{table}
+
+System of linear equations:
+\[
+    \begin{aligned}
+        x_1 - x_2 = 100 \\
+        x_2 - x_3 = -50 \\
+        x_3 - x_4 = 120 \\
+        x_4 - x_5 = -150 \\
+        x_5 - x_6 = 80 \\
+        x_6 - x_1 = -100
+    \end{aligned}
+\]
+
+Augmented matrix:
+
+\[
+    \begin{bmatrix}
+        1 & -1 & 0 & 0 & 0 & 0 & 100 \\
+        0 & 1 & -1 & 0 & 0 & 0 & -50 \\
+        0 & 0 & 1 & -1 & 0 & 0 & 120 \\
+        0 & 0 & 0 & 1 & -1 & 0 & -150 \\
+        0 & 0 & 0 & 0 & 1 & -1 & 80 \\
+        -1 & 0 & 0 & 0 & 0 & 1 & -100
+    \end{bmatrix}
+\]
+
+Reduced row echelon form (using software):
+
+%      1     0     0     0     0    -1   100
+% 0     1     0     0     0    -1     0
+% 0     0     1     0     0    -1    50
+% 0     0     0     1     0    -1   -70
+% 0     0     0     0     1    -1    80
+% 0     0     0     0     0     0     0
+
+\[
+    \begin{bmatrix}
+        1 & 0 & 0 & 0 & 0 & -1 & 100 \\
+        0 & 1 & 0 & 0 & 0 & -1 & 0 \\
+        0 & 0 & 1 & 0 & 0 & -1 & 50 \\
+        0 & 0 & 0 & 1 & 0 & -1 & -70 \\
+        0 & 0 & 0 & 0 & 1 & -1 & 80 \\
+        0 & 0 & 0 & 0 & 0 & 0 & 0
+    \end{bmatrix}
+\]
+
+\[
+    \therefore \text{The general solution of the network is:} \begin{cases}
+        x_1 = 100 + x_6 \\
+        x_2 = x_6 \\
+        x_3 = 50 + x_6 \\
+        x_4 = -70 + x_6 \\
+        x_5 = 80 + x_6 \\
+        x_6 = x_6
+    \end{cases}
+\]
+
+Distance cannot be negative so the smallest possible value for $x_6$ is $0$.
+
+\end{document}

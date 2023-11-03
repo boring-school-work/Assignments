@@ -1,0 +1,200 @@
+
+\documentclass[12pt, a4paper]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\begin{titlepage}
+\title{
+    \textbf{Homework 2} \\ \vspace{1cm}
+}
+
+\author{
+\vspace*{0.5cm}
+    David Abeiku Saah \\ \vspace{0.4cm}
+    MATH212: Linear Algebra \\ \vspace{0.5cm}
+    Dr Ayawoa Dagbovie \\
+}
+
+\date{September 7, 2023}
+\end{titlepage}
+
+\begin{document}
+
+\maketitle
+
+\newpage
+
+\section*{Problem 1}
+\[
+\boldsymbol{a_1}  = \begin{bmatrix}
+        1 \\
+        0 \\
+        1
+    \end{bmatrix}, \quad
+\boldsymbol{a_2}  = \begin{bmatrix}
+       -2 \\
+        3 \\
+       -2
+\end{bmatrix}, \quad
+\boldsymbol{a_3}  = \begin{bmatrix}
+       -6 \\
+        7 \\
+        5
+\end{bmatrix}, \quad
+\boldsymbol{b}  = \begin{bmatrix}
+        11 \\
+       -5 \\
+        9
+\end{bmatrix}
+\]
+For \textbf{b} to be a linear combination of $\boldsymbol{a_1}$, $\boldsymbol{a_2}$, and $\boldsymbol{a_3}$, the augmented matrix, $\begin{bmatrix} \boldsymbol{a_1} \quad  \boldsymbol{a_2} \quad \boldsymbol{a_3} \quad \boldsymbol{b} \end{bmatrix}$ must be consistent.
+
+Augmented matrix:
+\[
+\begin{bmatrix}
+    1 & -2 & -6 & 11 \\
+    0 & 3 & 7 & -5 \\
+    1 & -2 & 5 & 9
+\end{bmatrix}
+\]
+
+\[R_3 \rightarrow R_3 - R_1\]
+
+\[
+\begin{bmatrix}
+    1 & -2 & -6 & 11 \\
+    0 & 3 & 7 & -5 \\
+    0 & 0 & 11 & -2
+\end{bmatrix}
+\]
+
+The matrix in echelon form above is consistent because all columns except the rightmost one (the last column) are pivot columns.
+
+\[
+\therefore \boldsymbol{b} \text{ is a linear combination of } \boldsymbol{a_1}, \boldsymbol{a_2}, \text{ and } \boldsymbol{a_3}.
+\]
+\newpage
+\section*{Problem 2}
+
+\[
+\boldsymbol{v_1}  = \begin{bmatrix}
+        50 \\
+        56 \\
+        34
+    \end{bmatrix}, \quad
+\boldsymbol{v_2}  = \begin{bmatrix}
+       35 \\
+        14 \\
+       123
+\end{bmatrix}
+\]
+
+\subsection*{(a)}
+$3\boldsymbol{v_2}$ represents the output of Farm $\#2$ after operating for 3 months.
+
+\subsection*{(b)}
+\[
+    \text{Let } \boldsymbol{b} = \text{target output}  = \begin{bmatrix}
+        830 \\
+        728 \\
+        1358
+    \end{bmatrix}
+\]
+Vector equation whose solution gives the number of months each farm should operate in order to produce the target output:
+\[
+    x_1\boldsymbol{v_1} + x_2\boldsymbol{v_2} = \boldsymbol{b}
+\]
+
+\[
+    \implies x_1\begin{bmatrix}
+        50 \\
+        56 \\
+        34
+    \end{bmatrix} + x_2\begin{bmatrix}
+         35 \\
+          14 \\
+         123
+    \end{bmatrix} = \begin{bmatrix}
+        830 \\
+        728 \\
+        1358
+    \end{bmatrix}
+\]
+\newpage
+\section*{Problem 3}
+\[
+    A = \begin{bmatrix}
+        1 & -2 & -1 \\
+       -2 & 2 & 0 \\
+        4 & -1 & 3
+\end{bmatrix}, \quad
+    \boldsymbol{b} = \begin{bmatrix}
+        b_1 \\
+        b_2 \\
+        b_3
+\end{bmatrix}
+\]
+Augmented matrix for $A\boldsymbol{x} = \boldsymbol{b}$:
+\[
+    \begin{bmatrix}
+        1 & -2 & -1 & b_1 \\
+       -2 & 2 & 0 & b_2 \\
+        4 & -1 & 3 & b_3
+\end{bmatrix}
+\]
+
+\[R_2 \rightarrow R_2 + 2R_1\]
+
+\[
+    \begin{bmatrix}
+        1 & -2 & -1 & b_1 \\
+       0 & -2 & -2 & 2b_1+b_2 \\
+        4 & -1 & 3 & b_3
+\end{bmatrix}
+\]
+
+\[R_3 \rightarrow R_3 - 4R_1\]
+
+\[
+    \begin{bmatrix}
+        1 & -2 & -1 & b_1 \\
+       0 & -2 & -2 & 2b_1+b_2 \\
+        0 & 7 & 7 & b_3-4b_1
+\end{bmatrix}
+\]
+
+\[R_3 \rightarrow R_3 + \frac{7}{2}R_2\]
+
+\[
+    \begin{bmatrix}
+        1 & -2 & -1 & b_1 \\
+       0 & -2 & -2 & 2b_1+b_2 \\
+        0 & 0 & 0 & b_3-4b_1+\frac{7}{2}(2b_1+b_2)
+\end{bmatrix}
+\]
+
+Simplifying:
+\[
+    \begin{bmatrix}
+        1 & -2 & -1 & b_1 \\
+       0 & -2 & -2 & 2b_1+b_2 \\
+        0 & 0 & 0 & 3b_1+\frac{7}{2}b_2+b_3
+    \end{bmatrix}
+\]
+\[\]
+\subsection*{(a)}
+The third entry in column 4 equals $3b_1+\frac{7}{2}b_2+b_3$. The equation, $A\boldsymbol{x} = \boldsymbol{b}$ is not consistent for every $\boldsymbol{b}$ because some choices of $\boldsymbol{b}$ can make $3b_1+\frac{7}{2}b_2+b_3$ nonzero. For example:
+
+If $\boldsymbol{b} = \begin{bmatrix} 1 \\ 1 \\ 1 \end{bmatrix}$, then $3b_1+\frac{7}{2}b_2+b_3 = 3(1)+\frac{7}{2}(1)+1 = \frac{15}{2} \neq 0$.
+\[
+    \therefore \text{The equation, } A\boldsymbol{x} = \boldsymbol{b} \text{ does not have a solution for all possible } \boldsymbol{b}.
+\]
+
+\subsection*{(b)}
+For the equation, $A\boldsymbol{x} = \boldsymbol{b}$ to have a solution, all the entries of $\boldsymbol{b}$ must satisfy the equation:
+\[3b_1+\frac{7}{2}b_2+b_3 = 0\]
+
+$\therefore$ The set of all possible $\boldsymbol{b}$ is the set of all vectors in $\mathbb{R}^3$ that satisfy the equation:
+\[3b_1+\frac{7}{2}b_2+b_3 = 0\]
+
+\end{document}
