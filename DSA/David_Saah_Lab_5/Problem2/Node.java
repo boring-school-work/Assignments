@@ -23,7 +23,8 @@ public class Node {
   /**
    * Overidden compareTo method
    * 
-   * @param node the contact node to be compared
+   * @param another the contact node to be compared
+   *
    * @return 0 if the nodes are equal, -1 if the name is less than the contact,
    *         and 1 if the name is greater than the contact
    */
