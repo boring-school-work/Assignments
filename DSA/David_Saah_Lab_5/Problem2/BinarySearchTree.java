@@ -103,6 +103,7 @@ public class BinarySearchTree {
 
     return min_data;
   }
+
   /**
    * Deletes a contact from the binary search tree
    * 
@@ -110,7 +111,50 @@ public class BinarySearchTree {
    * 
    * @throws Exception if the contact is not found
    */
-  public void delete(String name) throws Exception {
+  public void delete(String name, Node root) throws Exception {
+    Node temp = root;
 
+    // find the parent of the contact to be deleted
+    while (temp != null) {
+      // if key > temp's key, go to right subtree
+      // else go to left subtree
+      if (name.compareTo(temp.data.getName()) > 0) {
+        temp = temp.right;
+      } else if (name.compareTo(temp.data.getName()) < 0) {
+        temp = temp.left;
+      } else {
+        break;
+      }
+    }
+
+    // if the contact is not found
+    if (temp == null) {
+      throw new Exception("Contact not found");
+    }
+
+    // check if the contact is in the leaf node
+    // delete the contact
+    if (temp.left == null && temp.right == null) {
+      temp = null;
+    }
+
+    // set temp to point to the leaf node remaining on the subtree
+    else if (temp.left == null) {
+      temp = temp.right;
+    } else if (temp.right == null) {
+      temp = temp.left;
+    }
+
+    // if the contact is not a leaf node but a subtree
+    else {
+      Contact min_data = findMin(temp.right);
+
+      // replace the data of temp with the 'minimum' element from the subtree
+      // it is updated in the parent tree
+      temp.data = min_data;
+
+      // recursively delete the 'minimum' contact element from the subtree
+      delete(min_data.getName(), temp.right);
+    }
   }
 }
