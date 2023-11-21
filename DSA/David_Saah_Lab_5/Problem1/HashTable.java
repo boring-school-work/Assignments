@@ -60,7 +60,9 @@ public class HashTable {
         int i = 0; // tracks iterations
 
         while (i < capacity) {
-            int index = (p_index + i * s_index) % capacity; // double hashing to get new index
+            // double hashing to get new index
+            // use absolute value to avoid negative index
+            int index = Math.abs((p_index + i * s_index) % capacity);
 
             if (table[index] == null) {
                 // if the entry is empty, update new_index
@@ -135,6 +137,7 @@ public class HashTable {
                 table[index] = null;
                 size--;
                 System.out.println("Entry " + key + " deleted");
+                return;
             }
 
             i++;
