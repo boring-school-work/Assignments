@@ -87,6 +87,23 @@ public class BinarySearchTree {
   }
 
   /**
+   * Finds the minimum element in a subtree
+   *
+   * @param parent the root of the subtree
+   *
+   * @return the ('minimum') contact on the subtree
+   */
+  public Contact findMin(Node parent) {
+    Contact min_data = parent.data;
+
+    while (parent.left != null) {
+      min_data = parent.left.data;
+      parent = parent.left;
+    }
+
+    return min_data;
+  }
+  /**
    * Deletes a contact from the binary search tree
    * 
    * @param name the name of the contact to be deleted
