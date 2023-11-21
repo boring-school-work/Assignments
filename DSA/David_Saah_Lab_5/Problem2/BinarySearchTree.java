@@ -93,7 +93,7 @@ public class BinarySearchTree {
    *
    * @return the ('minimum') contact on the subtree
    */
-  public Contact findMin(Node parent) {
+  private Contact findMin(Node parent) {
     Contact min_data = parent.data;
 
     while (parent.left != null) {
@@ -211,5 +211,25 @@ public class BinarySearchTree {
       // recursively delete the 'minimum' contact element from the subtree
       delete(min_data.getName(), temp.right);
     }
+  }
+
+  /**
+   * Performs inorder traversal on the BinarySearchTree
+   *
+   * @param parent the parent of the tree
+   */
+  private void inorder(Node parent) {
+    if (parent != null) {
+      inorder(parent.left);
+      System.out.printf("Name: %s, Telephone: %s\n", parent.data.getName(), parent.data.getTelephone());
+      inorder(parent.right);
+    }
+  }
+
+  /**
+   * Displays all the nodes in tree
+   */
+  public void display() {
+    inorder(root);
   }
 }
