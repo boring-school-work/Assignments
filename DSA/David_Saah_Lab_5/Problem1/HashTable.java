@@ -25,7 +25,7 @@ public class HashTable {
    * 
    * @return the index of the array
    */
-  public int p_hash(String key) {
+  private int p_hash(String key) {
     return key.hashCode() % capacity;
   }
 
@@ -36,7 +36,7 @@ public class HashTable {
    * 
    * @return the step size
    */
-  public int s_hash(String key) {
+  private int s_hash(String key) {
     return factor - (key.hashCode() % factor);
   }
 
@@ -165,7 +165,7 @@ public class HashTable {
    * 
    * @return a new prime number
    */
-  public int getPrime(int n, int mul) {
+  private int getPrime(int n, int mul) {
     int new_n = n * mul + 1; // increase current value by specified multiplier
 
     for (int i = n; n < Math.sqrt(new_n); i++) {
@@ -183,7 +183,7 @@ public class HashTable {
    * 
    * @throws Exception if collision occurs after resizing
    */
-  public void resize() throws Exception {
+  private void resize() throws Exception {
     capacity = getPrime(capacity, 2);
     Entry[] old_table = table;
     table = new Entry[capacity];
