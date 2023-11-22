@@ -8,12 +8,15 @@ public class Problem1 {
 
     try {
       // display table size and capacity
+      System.out.println("-".repeat(25));
       System.out.printf("Initial size: %d\n", table.getSize());
       System.out.printf("Initial capacity: %d\n", table.getCapacity());
+      System.out.println("-".repeat(25));
 
       /* INSERT DATA */
       System.out.println();
       System.out.println("Adding entries...");
+      System.out.println("-".repeat(25));
       table.insert("Kojo", 1.0);
       table.insert("Kofi", 2.0);
       table.insert("Kwame", 3.0);
@@ -27,12 +30,15 @@ public class Problem1 {
 
       // display table size and capacity
       System.out.println();
+      System.out.println("-".repeat(25));
       System.out.printf("Size: %d\n", table.getSize());
       System.out.printf("Capacity: %d\n", table.getCapacity());
+      System.out.println("-".repeat(25));
 
       /* TEST TABLE RESIZE */
       System.out.println();
       System.out.println("Adding new entries to resize table...");
+      System.out.println("-".repeat(25));
       table.insert("Ama", 12.0);
       table.insert("Yaa", 13.0);
       table.insert("Afua", 14.0);
@@ -43,12 +49,15 @@ public class Problem1 {
 
       // display table size and capacity
       System.out.println();
+      System.out.println("-".repeat(25));
       System.out.printf("Size: %d\n", table.getSize());
       System.out.printf("Capacity: %d\n", table.getCapacity());
+      System.out.println("-".repeat(25));
 
       /* TEST UPDATE ENTRIES */
       System.out.println();
       System.out.println("Updating 5 entries...");
+      System.out.println("-".repeat(25));
       table.insert("Kojo", 1.5);
       table.insert("Kofi", 2.5);
       table.insert("Kwame", 3.5);
@@ -58,11 +67,13 @@ public class Problem1 {
       // display table
       System.out.println();
       System.out.println("Displaying table...");
+      System.out.println("-".repeat(25));
       table.display();
 
       /* TEST TABLE SEARCH */
       System.out.println();
       System.out.println("Searching for entries...");
+      System.out.println("-".repeat(25));
       System.out.printf("Kojo: %.2f\n", table.search("Kojo"));
       System.out.printf("Kofi: %.2f\n", table.search("Kofi"));
       System.out.printf("Kwame: %.2f\n", table.search("Kwame"));
@@ -71,6 +82,7 @@ public class Problem1 {
       /* TEST ENTRY DELETION */
       System.out.println();
       System.out.println("Deleting entries...");
+      System.out.println("-".repeat(25));
       table.delete("Kojo");
       table.delete("Kofi");
       table.delete("Kwame");
@@ -80,12 +92,14 @@ public class Problem1 {
       // display table
       System.out.println();
       System.out.println("Displaying table...");
+      System.out.println("-".repeat(25));
       table.display();
 
       /* ADD MORE ENTRIES TO CHECK IF COLLISIONS ARE AVOIDED */
       // adding 10 more entries
       System.out.println();
       System.out.println("Adding 10 more entries...");
+      System.out.println("-".repeat(25));
       table.insert("Mary", 19.0);
       table.insert("John", 20.0);
       table.insert("Jane", 21.0);
@@ -99,12 +113,15 @@ public class Problem1 {
 
       // display table size and capacity
       System.out.println();
+      System.out.println("-".repeat(25));
       System.out.printf("Size: %d\n", table.getSize());
       System.out.printf("Capacity: %d\n", table.getCapacity());
+      System.out.println("-".repeat(25));
 
       // display table
       System.out.println();
       System.out.println("Displaying table...");
+      System.out.println("-".repeat(25));
       table.display();
     } catch (Exception e) {
       System.out.println(e.getMessage());

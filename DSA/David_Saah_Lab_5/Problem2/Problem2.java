@@ -20,6 +20,7 @@ public class Problem2 {
     try {
 
       System.out.println("Inserting into the contact list...");
+      System.out.println("-".repeat(35));
 
       /* INSERT INTO THE CONTACT LIST */
       list.Insert(contact1);
@@ -30,14 +31,15 @@ public class Problem2 {
 
       System.out.println();
 
-      System.out.println("Displaying phone directory...");
-
       /* DISPLAY THE PHONE DIRECTORY */
+      System.out.println("Displaying phone directory...");
+      System.out.println("-".repeat(35));
       list.Print();
 
       System.out.println();
 
       System.out.println("Searching for contacts...");
+      System.out.println("-".repeat(35));
 
       /* SEARCH FOR A CONTACT */
       System.out.println("Searching for the telephone number of Kojo:");
@@ -49,15 +51,20 @@ public class Problem2 {
 
       System.out.println();
 
-      System.out.println("Deleting Kojo's contact");
-
       /* DELETE CONTACTS */
+      System.out.println("-".repeat(35));
+      System.out.println("Deleting Kojo's contact");
       list.Delete("Kojo");
-      // list.Delete("Kofi");
+
+      System.out.println("Deleting Kofi's contact");
+      list.Delete("Kofi");
+      System.out.println("-".repeat(35));
 
       System.out.println();
 
       // display contact list
+      System.out.println("Displaying phone directory...");
+      System.out.println("-".repeat(35));
       list.Print();
 
       System.out.println();
